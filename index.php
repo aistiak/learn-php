@@ -1,31 +1,24 @@
 <?php 
 
-	class Task {
-		public $description ;
+	
+require 'Task.php' ;
 
-		public $completed = false ;
-		
-		public function __construct($description){
-			$this->description = $description ;
-		}
+try{
 
-		public function complete(){
-			$this->completed = true ;
-		}
+	$pdo = new PDO('mysql:host=127.0.0.1;dbname=mytodo' , 'root','');
+} catch(PDOException $e ){
 
-		public function isComplete(){
-			return $this->completed ;
-		}
+	die('could not connect');
 
-	}
+}
 
-	$tasks = [
+$statement = $pdo->prepare('select * from todos');
 
-		new Task("eat") ,
-		new Task("sleep") ,
-		new Task("code") ,
+$statement->execute();
 
-	] ;
+// var_dump($statement->fetchAll(PDO::FETCH_OBJ));
+// $tasks = $statement->fetchAll(PDO::FETCH_OBJ);
+$tasks = $statement->fetchAll(PDO::FETCH_CLASS,'Task');
 
-	$tasks[0]->complete();
-	require 'index.view.php';
+
+require 'index.view.php';
