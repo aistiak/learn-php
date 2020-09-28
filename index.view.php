@@ -3,18 +3,24 @@
 <head>
 	<title>class 4 </title>
 	<style type="text/css">
-		header{
-			background-color: lightgrey;
-			padding : 50px;
-			text-align: center; 
+		li{
+			font-size: 30px;
 		}
 	</style>
 </head>
 <body>
-	<header>
-		<h1>
-			<?=  $greeting; ?> 		
-		</h1>
-	</header>
+	<ul>
+		<?php  foreach($tasks as $task) : ?>
+		  <li>
+		  	<?php if($task->isComplete()) : ?>
+    		   <strike>
+	    		   <?= $task->description ?>    		   	
+    		   </strike>
+    		<?php else : ?>
+			   <?= $task->description ?>
+    		<?php endif ?>   				
+		  </li>
+		<?php  endforeach ?>
+	</ul>
 </body>
 </html>
