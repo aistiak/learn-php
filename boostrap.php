@@ -2,10 +2,12 @@
 
 require 'database/Connection.php' ;
 require 'QueryBuilder.php';
+$config = require 'config.php';
+
 
 
 return new QueryBuilder(
 
-	Connection::make()
+	Connection::make( $config['database'] )
 
 ) ;
