@@ -2,20 +2,12 @@
 
 	
 require 'Task.php' ;
-require 'functions.php' ;
+
+$query = require("boostrap.php");
 
 
-$pdo = connectToDb() ;
+$tasks = $query->fetchAll("todos","Task") ; 
 
-$statement = $pdo->prepare('select * from todos');
-
-$statement->execute();
-
-// var_dump($statement->fetchAll(PDO::FETCH_OBJ));
-
-// $tasks = $statement->fetchAll(PDO::FETCH_OBJ);
-
-$tasks = $statement->fetchAll(PDO::FETCH_CLASS,'Task');
-
+var_dump($tasks);
 
 require 'index.view.php';
