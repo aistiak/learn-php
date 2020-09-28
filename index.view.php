@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<h1>
-			<?=  "Hello " . htmlspecialchars($_GET['name']); ?> 		
+			<?=  $greeting; ?> 		
 		</h1>
 	</header>
 </body>
