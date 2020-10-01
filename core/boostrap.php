@@ -1,7 +1,9 @@
 <?php
 
-require 'database/Connection.php' ;
-require 'QueryBuilder.php';
+require 'core/Router.php';
+require 'core/database/Connection.php' ;
+require 'core/database/QueryBuilder.php';
+
 $config = require 'config.php';
 
 
