@@ -5,7 +5,9 @@
     </head>
 
     <body>
-        
+    
+        <?php  require 'nav.view.php' ?>
+
         <h1>this is contact page </h1>
 
     </body>

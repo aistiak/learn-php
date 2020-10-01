@@ -5,17 +5,5 @@
 $database = require("core/boostrap.php");
 
 
-$router = new Router ;
-
-
-require 'routes.php' ;
-
-$uri =  str_replace( "learn-php/","",$_SERVER['REQUEST_URI'] )  ;
-
-$uri = trim($uri,"/");
-
-var_dump(  $uri );
-
-require $router->direct($uri);
-
-
+require Router::load('routes.php')
+              ->direct( Request::uri() );

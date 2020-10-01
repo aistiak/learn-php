@@ -4,6 +4,16 @@ class Router {
 
     protected $routes = [] ;
 
+
+    public static function load($file)
+    {
+        $router = new static ; // creates a new instace 
+    
+        require $file ;
+    
+        return $router ;
+    }
+
     public function define($routes)
     {
     
