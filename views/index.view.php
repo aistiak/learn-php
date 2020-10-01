@@ -9,7 +9,7 @@
 	</style>
 </head>
 <body>
-    <?php  require 'nav.view.php' ?>
+    <?php  require 'partials/nav.view.php' ?>
 	<ul>
 		<?php  foreach($tasks as $task) : ?>
 		  <li>
